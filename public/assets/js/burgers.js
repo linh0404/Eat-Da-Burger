@@ -1,9 +1,11 @@
 $(function() {
     $(".change-eat").on("click", function(event) {
+        console.log("test");
         var id = $(this).data("id");
         var newEat = $(this).data("devoured");
-        console.log$($(this));
 
+        console.log(id);
+        console.log(newEat);
         var newDevourState = {
             devoured: newEat
         };
@@ -23,13 +25,13 @@ $(function() {
         event.preventDefault();
 
         var newBurger = {
-            name: $("ca").val().trim(),
+            name: $("#ca").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
 
         $.ajax("/api/burgers", {
             type: "POST",
-            data: newEat
+            data: newBurger,
         }).then(
             function() {
                 console.log("created new burger");
